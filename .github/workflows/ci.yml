@@ -1,7 +1,9 @@
 name: deploy
 
 on:
-  - push
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -27,12 +29,40 @@ jobs:
       - name: build
         run: yarn build
 
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: static
+          path: build/
+
+  deploy-main:
+    environment: main
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: static
+          path: build
+      - name: upload
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --follow-symlinks
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY}}
-          ARGS: '-rltgoDzvO'
-          SOURCE: 'build/'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST}}
-          REMOTE_USER: ${{ secrets.REMOTE_USER}}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: 'build'
+      - name: invalidate
+        uses: chetan/invalidate-cloudfront-action@master
+        env:
+          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          PATHS: '/ /index.html'
+          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
