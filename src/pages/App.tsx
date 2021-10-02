@@ -203,7 +203,7 @@ function App() {
           </Formula>
           <ButtonFrame>
             <Button onClick={() => {
-              window.location.href = 'https://www.fortprotocol.com/'
+              window.location.href = 'https://app.hedge.red'
             }}
             >
               App
