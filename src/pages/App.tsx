@@ -128,18 +128,15 @@ const Button = styled.button`
     height: 100%;
     width: 100%;
     margin-top: 20px;
-    border: 0px;
+    border: 2px;
+    border-style:solid;
     border-radius: 22px;
-    background-color: #fff;
-    color: #0047bb;
+    background-color: transparent;
+    color: #fff;
     font-family: MontserratBold;
     text-align: center;
     font-size: 14px;
-    &:hover {
-      background-color: #0047bb;
-      color: #fff;
-    }
-    
+    cursor:pointer;
 `
 
 const zoomInAnimation = keyframes`${zoomIn}`
