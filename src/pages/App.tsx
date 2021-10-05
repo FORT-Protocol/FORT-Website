@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
 import styled, {keyframes} from "styled-components";
-import bg from '../assets/bg.svg';
+import bg from '../assets/Wallpaper.jpg';
 import cofix2 from '../assets/cofix-2.svg';
 import cofix3 from '../assets/cofix-3.svg';
 import cofix4 from '../assets/cofix-4.svg';
