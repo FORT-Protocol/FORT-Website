@@ -200,7 +200,9 @@ function App() {
           </Formula>
           <ButtonFrame>
             <Button onClick={() => {
-              window.location.href = 'https://app.hedge.red'
+              const w = window.open('about:blank');
+              // @ts-ignore
+              w.location.href = 'https://app.hedge.red';
             }}
             >
               App
