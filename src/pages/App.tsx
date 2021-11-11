@@ -50,6 +50,7 @@ const DashboardButton = styled.button`
   &:hover {
     background-color: white;
     color: #0047BB;
+    border: none;
   }
   @media (max-width: 600px) {
     display: none;
@@ -119,6 +120,7 @@ const AppButton = styled.button`
   &:hover {
     background-color: white;
     color: #0047BB;
+    border: none;
   }
   @media (max-width: 600px) {
     width: 176px;
@@ -140,6 +142,11 @@ const DashboardButton2 = styled.button`
   visibility:hidden;
   margin-top: 24px;
   user-select: none;
+  &:hover {
+    background-color: white;
+    color: #0047BB;
+    border: none;
+  }
   @media (max-width: 600px) {
     visibility:visible;
     width: 176px;
