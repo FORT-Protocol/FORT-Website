@@ -3,6 +3,7 @@ import logo from '../assets/images/logo.svg';
 import styled from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
+import ball1 from '../assets/images/ball1.png';
 
 const AppFrame = styled.div`
   width: 100vw;
@@ -65,10 +66,20 @@ const BallsFrame = styled.div`
   z-index: 5;
 `
 
+const Ball1Frame = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Ball1 = styled.img`
+  height: 90%;
+`
+
 const AppButton = styled.button`
   height: 34px;
   width: 146px;
-  margin-right: 44px;
   border: 2px;
   border-style:solid;
   border-radius: 22px;
@@ -77,7 +88,6 @@ const AppButton = styled.button`
   font-family: MontserratBold;
   text-align: center;
   font-size: 16px;
-  line-height: 20px;
   cursor:pointer;
 `
 
@@ -91,6 +101,9 @@ function App() {
   return (
     <AppFrame>
       <BallsFrame>
+        <Ball1Frame>
+          <Ball1 src={ball1} alt={"ball1"}/>
+        </Ball1Frame>
       </BallsFrame>
       <HeaderFrame>
         <Logo src={logo} alt="logo"/>
