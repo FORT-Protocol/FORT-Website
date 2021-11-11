@@ -49,6 +49,6 @@ jobs:
         uses: web3-storage/add-to-web3@v1.0.0
         with:
           path_to_add: build
-          web3_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDMwYmY1NDVDNDNjRWE0NTc3NTc1NDg2MUZBMkM3ZTRkMTY0OGQ0NTMiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2MzUzODQ1MTYyNTIsIm5hbWUiOiJoZWRnZSBkYXNoYm9hcmQifQ.NeEhjGBYXoHKgRCVs3H2O3X-wIaEjkM6ThOX94AKTpc"
+          web3_token: ${{ secrets.WEB3_KEY }}
           web3_api: https://api.web3.storage
           wrap_with_directory: false
