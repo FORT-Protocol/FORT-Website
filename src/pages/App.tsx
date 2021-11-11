@@ -23,16 +23,17 @@ const HeaderFrame = styled.div`
   align-item: center;
   justify-content: space-between;
   @media (max-width: 600px) {
-    position: static;
+    justify-content: center;
   }
 `
 
 const Logo = styled.img`
   margin: 0 44px;
+  user-select: none;
 `
 
 const DashboardButton = styled.button`
-  height: 34px;
+  height: 44px;
   width: 170px;
   margin-right: 44px;
   border: 2px;
@@ -44,7 +45,11 @@ const DashboardButton = styled.button`
   text-align: center;
   font-size: 16px;
   line-height: 20px;
+  user-select: none;
   cursor:pointer;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 
 const ContentFrame = styled.div`
@@ -56,6 +61,7 @@ const ContentFrame = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 `
 
 const Ball1Frame = styled.div`
@@ -66,6 +72,11 @@ const Ball1Frame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 600px) {
+    width: 200%;
+    position: absolute;
+    left: -500px;
+  }
 `
 
 const myRotate = keyframes`
@@ -78,12 +89,30 @@ const myRotate = keyframes`
 `
 
 const Ball1 = styled.img`
-  height: 90%;
+  height: 80%;
   animation:${myRotate} 60s linear infinite;
 `
 
 const AppButton = styled.button`
-  height: 34px;
+  height: 44px;
+  width: 146px;
+  border: 2px;
+  border-style:solid;
+  border-radius: 22px;
+  background-color: transparent;
+  color: #fff;
+  font-family: MontserratBold;
+  text-align: center;
+  font-size: 16px;
+  user-select: none;
+  cursor:pointer;
+  @media (max-width: 600px) {
+    width: 176px;
+  }
+`
+
+const DashboardButton2 = styled.button`
+  height: 44px;
   width: 146px;
   border: 2px;
   border-style:solid;
@@ -94,13 +123,24 @@ const AppButton = styled.button`
   text-align: center;
   font-size: 16px;
   cursor:pointer;
+  visibility:hidden;
+  margin-top: 24px;
+  user-select: none;
+  @media (max-width: 600px) {
+    visibility:visible;
+    width: 176px;
+  }
 `
 
 const FormulaImage = styled.img`
   width: 530px;
   height: 70px;
   margin-bottom: 30px;
-  ser-select: none;
+  user-select: none;
+  @media (max-width: 600px) {
+    width: 280px;
+    height: 37px;
+  }
 `
 
 function App() {
@@ -114,7 +154,7 @@ function App() {
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
-          w.location.href = 'https://dashboard.hedge.red';
+          w.location.href = 'https://hedge-dashboard.on.fleek.co/';
         }}>
           Dashboard
         </DashboardButton>
@@ -128,6 +168,9 @@ function App() {
         }}>
           APP
         </AppButton>
+        <DashboardButton2>
+          Dashboard
+        </DashboardButton2>
       </ContentFrame>
     </AppFrame>
   );
