@@ -39,30 +39,16 @@ jobs:
     environment: main
     needs: build
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
           name: static
           path: build
-      - name: upload
-        uses: jakejarvis/s3-sync-action@master
+      - name: upload to web3
+        uses: web3-storage/add-to-web3@v1.0.0
         with:
-          args: --follow-symlinks
-        env:
-          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: 'build'
-      - name: invalidate
-        uses: chetan/invalidate-cloudfront-action@master
-        env:
-          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
-          PATHS: '/ /index.html'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          path_to_add: build
+          web3_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDMwYmY1NDVDNDNjRWE0NTc3NTc1NDg2MUZBMkM3ZTRkMTY0OGQ0NTMiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2MzUzODQ1MTYyNTIsIm5hbWUiOiJoZWRnZSBkYXNoYm9hcmQifQ.NeEhjGBYXoHKgRCVs3H2O3X-wIaEjkM6ThOX94AKTpc"
+          web3_api: https://api.web3.storage
+          wrap_with_directory: false
