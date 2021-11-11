@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/images/logo.svg';
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
 import ball1 from '../assets/images/ball1.png';
@@ -73,8 +73,27 @@ const Ball1Frame = styled.div`
   align-items: center;
 `
 
+const myRotate = keyframes`
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg)
+  }
+`
+
+const inverseRotate = keyframes`
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg)
+  }
+`
+
 const Ball1 = styled.img`
   height: 90%;
+  animation:${myRotate} 60s linear infinite;
 `
 
 const AppButton = styled.button`
