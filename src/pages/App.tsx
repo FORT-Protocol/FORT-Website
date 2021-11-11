@@ -94,13 +94,21 @@ function App() {
       </BallsFrame>
       <HeaderFrame>
         <Logo src={logo} alt="logo"/>
-        <DashboardButton>
+        <DashboardButton onClick={() => {
+          const w = window.open('about:blank');
+          // @ts-ignore
+          w.location.href = 'https://dashboard.hedge.red';
+        }}>
           Dashboard
         </DashboardButton>
       </HeaderFrame>
       <ContentFrame>
         <FormulaImage src={fort} alt="fort formula"/>
-        <AppButton>
+        <AppButton onClick={() => {
+          const w = window.open('about:blank');
+          // @ts-ignore
+          w.location.href = 'https://app.hedge.red';
+        }}>
           APP
         </AppButton>
       </ContentFrame>
