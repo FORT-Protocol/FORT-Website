@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../assets/images/logo.svg';
 import styled, {keyframes} from "styled-components";
 import bg from '../assets/images/bg.jpg';
@@ -58,15 +58,10 @@ const ContentFrame = styled.div`
   justify-content: center;
 `
 
-const BallsFrame = styled.div`
-  height: 100%;
-  width: 100%;
-  
+const Ball1Frame = styled.div`
   position: absolute;
   z-index: 5;
-`
-
-const Ball1Frame = styled.div`
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -79,15 +74,6 @@ const myRotate = keyframes`
   }
   100% {
     -webkit-transform: rotate(360deg)
-  }
-`
-
-const inverseRotate = keyframes`
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg)
   }
 `
 
@@ -114,16 +100,15 @@ const FormulaImage = styled.img`
   width: 530px;
   height: 70px;
   margin-bottom: 30px;
+  ser-select: none;
 `
 
 function App() {
   return (
     <AppFrame>
-      <BallsFrame>
         <Ball1Frame>
           <Ball1 src={ball1} alt={"ball1"}/>
         </Ball1Frame>
-      </BallsFrame>
       <HeaderFrame>
         <Logo src={logo} alt="logo"/>
         <DashboardButton onClick={() => {
