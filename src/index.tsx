@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/global.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
+import MontserratBold from './assets/fonts/Montserrat-Bold.ttf';
+import {createGlobalStyle} from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: MontserratBold;
+    src: url(${MontserratBold}) format('truetype');
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+`
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyle/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
