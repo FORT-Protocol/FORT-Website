@@ -47,6 +47,10 @@ const DashboardButton = styled.button`
   line-height: 20px;
   user-select: none;
   cursor:pointer;
+  &:hover {
+    background-color: white;
+    color: #0047BB;
+  }
   @media (max-width: 600px) {
     display: none;
   }
@@ -106,6 +110,10 @@ const AppButton = styled.button`
   font-size: 16px;
   user-select: none;
   cursor:pointer;
+  &:hover {
+    background-color: white;
+    color: #0047BB;
+  }
   @media (max-width: 600px) {
     width: 176px;
   }
