@@ -79,7 +79,7 @@ const Ball1Frame = styled.div`
   @media (max-width: 600px) {
     width: 200%;
     position: absolute;
-    left: -500px;
+    left: -375px;
   }
 `
 
@@ -95,6 +95,12 @@ const myRotate = keyframes`
 const Ball1 = styled.img`
   height: 80%;
   animation:${myRotate} 60s linear infinite;
+  @media (max-width: 1024px) {
+     height: 60%;
+  }
+  @media (max-width: 600px) {
+     height: 80%;
+  }
 `
 
 const AppButton = styled.button`
