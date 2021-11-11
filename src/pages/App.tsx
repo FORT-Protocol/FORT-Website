@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import logo from '../assets/images/logo.svg';
 import styled, {keyframes} from "styled-components";
 import bg from '../assets/images/bg.jpg';
