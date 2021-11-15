@@ -1,6 +1,6 @@
 import React, { useRef, Suspense } from 'react'
 import logo from '../assets/images/logo.svg';
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
 import * as THREE from 'three';
@@ -11,7 +11,6 @@ const AppFrame = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url(${bg});
-  //background: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -84,26 +83,6 @@ const BallFrame = styled.div`
     width: 200%;
     position: absolute;
     left: -375px;
-  }
-`
-
-const myRotate = keyframes`
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg)
-  }
-`
-
-const Ball = styled.img`
-  height: 80%;
-  animation:${myRotate} 60s linear infinite;
-  @media (max-width: 1024px) {
-     height: 60%;
-  }
-  @media (max-width: 600px) {
-     height: 80%;
   }
 `
 
