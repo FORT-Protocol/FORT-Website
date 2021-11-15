@@ -165,6 +165,10 @@ const FormulaImage = styled.img`
     width: 280px;
     height: 37px;
   }
+  @media (max-width: 1600px) {
+    width: 400px;
+    height: 55px
+  }
 `
 
 function Box(props: JSX.IntrinsicElements['mesh']) {
@@ -177,7 +181,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
   })
   return (
     <mesh {...props} ref={ref}>
-      <sphereBufferGeometry args={[2.3, 80, 80]}/>
+      <sphereBufferGeometry args={[2.4, 80, 80]}/>
       <meshStandardMaterial attach={"material"} map={colorMap}/>
     </mesh>
   )
