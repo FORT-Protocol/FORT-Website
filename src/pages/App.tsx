@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useRef, Suspense } from 'react'
 import logo from '../assets/images/logo.svg';
 import styled, {keyframes} from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
-import ball1 from '../assets/images/ball1.png';
+import * as THREE from 'three';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 const AppFrame = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url(${bg});
+  //background: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -69,7 +72,7 @@ const ContentFrame = styled.div`
   
 `
 
-const Ball1Frame = styled.div`
+const BallFrame = styled.div`
   position: absolute;
   z-index: 5;
   width: 100%;
@@ -93,7 +96,7 @@ const myRotate = keyframes`
   }
 `
 
-const Ball1 = styled.img`
+const Ball = styled.img`
   height: 80%;
   animation:${myRotate} 60s linear infinite;
   @media (max-width: 1024px) {
@@ -164,12 +167,35 @@ const FormulaImage = styled.img`
   }
 `
 
+function Box(props: JSX.IntrinsicElements['mesh']) {
+  const ref = useRef<THREE.Mesh>(null!)
+  const colorMap = useLoader(TextureLoader, 'map.jpg')
+
+  useFrame((state, delta) => {
+    ref.current.rotateY(-0.001)
+    ref.current.rotateX(0.001)
+  })
+  return (
+    <mesh {...props} ref={ref}>
+      <sphereBufferGeometry args={[2.3, 80, 80]}/>
+      <meshStandardMaterial attach={"material"} map={colorMap}/>
+    </mesh>
+  )
+}
+
 function App() {
   return (
     <AppFrame>
-        <Ball1Frame>
-          <Ball1 src={ball1} alt={"ball1"}/>
-        </Ball1Frame>
+        <BallFrame>
+          <Canvas>
+            <ambientLight intensity={0.02} />
+            <directionalLight color="white" position={[20, 20, -20]}   intensity={1.5} />
+            <directionalLight color="white" position={[20, 20, 20]} intensity={0.12} castShadow/>
+            <Suspense fallback={null}>
+              <Box position={[0, 0, 0]} />
+            </Suspense>
+          </Canvas>
+        </BallFrame>
       <HeaderFrame>
         <Logo src={logo} alt="logo"/>
         <DashboardButton onClick={() => {
