@@ -20,7 +20,7 @@ const HeaderFrame = styled.div`
   z-index: 9;
   display: flex;
   padding: 30px 0;
-  align-item: center;
+  align-items: center;
   justify-content: space-between;
   @media (max-width: 600px) {
     justify-content: center;
@@ -41,7 +41,7 @@ const DashboardButton = styled.button`
   border-radius: 22px;
   background-color: transparent;
   color: #fff;
-  font-family: MontserratBold;
+  font-family: MontserratBold,serif;
   text-align: center;
   font-size: 16px;
   line-height: 20px;
@@ -112,7 +112,7 @@ const AppButton = styled.button`
   border-radius: 22px;
   background-color: transparent;
   color: #fff;
-  font-family: MontserratBold;
+  font-family: MontserratBold,serif;
   text-align: center;
   font-size: 16px;
   user-select: none;
@@ -135,7 +135,7 @@ const DashboardButton2 = styled.button`
   border-radius: 22px;
   background-color: transparent;
   color: #fff;
-  font-family: MontserratBold;
+  font-family: MontserratBold,serif;
   text-align: center;
   font-size: 16px;
   cursor:pointer;
