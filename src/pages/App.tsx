@@ -198,7 +198,11 @@ function App() {
         }}>
           APP
         </AppButton>
-        <DashboardButton2>
+        <DashboardButton2 onClick={() => {
+          const w = window.open('about:blank');
+          // @ts-ignore
+          w.location.href = 'https://hedge-dashboard.on.fleek.co/';
+        }}>
           Dashboard
         </DashboardButton2>
       </ContentFrame>
