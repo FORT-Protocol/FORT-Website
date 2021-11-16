@@ -82,7 +82,7 @@ const BallFrame = styled.div`
   @media (max-width: 600px) {
     width: 200%;
     position: absolute;
-    left: -375px;
+    left: -325px;
   }
 `
 
@@ -140,13 +140,13 @@ const FormulaImage = styled.img`
   height: 70px;
   margin-bottom: 30px;
   user-select: none;
+  @media (max-width: 1600px) {
+    width: 360px;
+    height: 55px;
+  }
   @media (max-width: 600px) {
     width: 280px;
     height: 37px;
-  }
-  @media (max-width: 1600px) {
-    width: 400px;
-    height: 55px
   }
 `
 
@@ -160,7 +160,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
   })
   return (
     <mesh {...props} ref={ref}>
-      <sphereBufferGeometry args={[2.4, 80, 80]}/>
+      <sphereBufferGeometry args={[2.5, 80, 80]}/>
       <meshStandardMaterial attach={"material"} map={colorMap}/>
     </mesh>
   )
