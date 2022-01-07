@@ -2,7 +2,9 @@
   "name": "fort-website",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "ga-4-react": "^0.1.281"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

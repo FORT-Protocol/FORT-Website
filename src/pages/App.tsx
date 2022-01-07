@@ -6,6 +6,7 @@ import fort from '../assets/images/fort.svg';
 import * as THREE from 'three';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import {useGA4React} from "ga-4-react"
 
 const AppFrame = styled.div`
   width: 100vw;
@@ -167,6 +168,8 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 }
 
 function App() {
+  const ga4 = useGA4React()
+
   return (
     <AppFrame>
         <BallFrame>
@@ -192,6 +195,9 @@ function App() {
       <ContentFrame>
         <FormulaImage src={fort} alt="fort formula"/>
         <AppButton onClick={() => {
+          if (ga4){
+            ga4.event("jump", "APP", "")
+          }
           const w = window.open('about:blank');
           // @ts-ignore
           w.location.href = 'https://app.hedge.red';
@@ -199,6 +205,9 @@ function App() {
           APP
         </AppButton>
         <DashboardButton2 onClick={() => {
+          if (ga4){
+            ga4.event("jump", "Dashboard", "")
+          }
           const w = window.open('about:blank');
           // @ts-ignore
           w.location.href = 'https://hedge-dashboard.on.fleek.co/';
