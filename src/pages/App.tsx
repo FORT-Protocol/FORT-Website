@@ -1,5 +1,4 @@
 import React, { useRef, Suspense } from 'react'
-import logo from '../assets/images/logo.svg';
 import styled from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
@@ -7,6 +6,7 @@ import * as THREE from 'three';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import {useGA4React} from "ga-4-react"
+import {FortLogo} from "../assets";
 
 const AppFrame = styled.div`
   width: 100vw;
@@ -30,17 +30,10 @@ const HeaderFrame = styled.div`
   }
 `
 
-const Logo = styled.img`
-  margin: 0 44px;
-  width: 156.64px;
-  height: 28.96px;
-  user-select: none;
-`
-
 const DashboardButton = styled.button`
   height: 44px;
   width: 170px;
-  margin-right: 44px;
+  margin-right: 40px;
   border: 2px;
   border-style:solid;
   border-radius: 22px;
@@ -172,6 +165,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 function App() {
   const ga4 = useGA4React()
 
+  // @ts-ignore
   return (
     <AppFrame>
         <BallFrame>
@@ -185,7 +179,7 @@ function App() {
           </Canvas>
         </BallFrame>
       <HeaderFrame>
-        <Logo src={logo} alt="logo"/>
+        <FortLogo style={{ marginLeft: "40px" }} />
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore

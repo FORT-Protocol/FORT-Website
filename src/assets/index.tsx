@@ -1,0 +1,1 @@
+export { ReactComponent as FortLogo } from './images/logo.svg'
