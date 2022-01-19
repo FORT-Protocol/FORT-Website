@@ -22,7 +22,7 @@ const HeaderFrame = styled.div`
   width: 100%;
   z-index: 9;
   display: flex;
-  padding: 30px 0;
+  padding: 11px 0;
   align-items: center;
   justify-content: space-between;
   @media (max-width: 600px) {
@@ -32,6 +32,8 @@ const HeaderFrame = styled.div`
 
 const Logo = styled.img`
   margin: 0 44px;
+  width: 156.64px;
+  height: 28.96px;
   user-select: none;
 `
 
