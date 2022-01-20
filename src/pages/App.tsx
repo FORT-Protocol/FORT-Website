@@ -22,7 +22,7 @@ const HeaderFrame = styled.div`
   width: 100%;
   z-index: 9;
   display: flex;
-  padding: 11px 0;
+  height: 66px;
   align-items: center;
   justify-content: space-between;
   @media (max-width: 600px) {
@@ -179,7 +179,7 @@ function App() {
           </Canvas>
         </BallFrame>
       <HeaderFrame>
-        <FortLogo style={{ marginLeft: "40px" }} />
+        <FortLogo style={{ marginLeft: "40px", height: "44px" }} />
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
