@@ -22,7 +22,7 @@ const HeaderFrame = styled.div`
   width: 100%;
   z-index: 9;
   display: flex;
-  height: 66px;
+  padding: 11px 0;
   align-items: center;
   justify-content: space-between;
   @media (max-width: 600px) {
