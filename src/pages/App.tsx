@@ -183,7 +183,7 @@ function App() {
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
-          w.location.href = 'https://hedge-dashboard.on.fleek.co/';
+          w.location.href = 'https://fort-dashboard.on.fleek.co/';
         }}>
           Dashboard
         </DashboardButton>
@@ -196,7 +196,7 @@ function App() {
           }
           const w = window.open('about:blank');
           // @ts-ignore
-          w.location.href = 'https://app.hedge.red';
+          w.location.href = 'https://app.fortprotocol.com/';
         }}>
           APP
         </AppButton>
@@ -206,7 +206,7 @@ function App() {
           }
           const w = window.open('about:blank');
           // @ts-ignore
-          w.location.href = 'https://hedge-dashboard.on.fleek.co/';
+          w.location.href = 'https://fort-dashboard.on.fleek.co/';
         }}>
           Dashboard
         </DashboardButton2>
