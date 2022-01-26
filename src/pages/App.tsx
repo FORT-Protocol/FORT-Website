@@ -179,7 +179,7 @@ function App() {
           </Canvas>
         </BallFrame>
       <HeaderFrame>
-        <FortLogo style={{ marginLeft: "40px", height: "20px" }} />
+        <FortLogo style={{ margin: "0 40px", height: "20px" }} />
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
