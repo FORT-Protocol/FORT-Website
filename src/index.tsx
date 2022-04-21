@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 // @ts-ignore
 import MontserratBold from './assets/fonts/Montserrat-Bold.ttf';
 import {createGlobalStyle} from "styled-components";
-import GA4React from "ga-4-react";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -24,24 +23,13 @@ body {
 }
 `
 
-const ga4react = new GA4React("G-PF409XLWJG", {
-  send_page_view: true,
-});
-
-
-(async () => {
-  await ga4react.initialize();
-
-  ReactDOM.render(
-    <React.StrictMode>
-      <GlobalStyle/>
-      <App/>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-})();
-
-
+ReactDOM.render(
+  <React.StrictMode>
+    <GlobalStyle/>
+    <App/>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

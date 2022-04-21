@@ -1,11 +1,10 @@
-import React, { useRef, Suspense } from 'react'
+import React, {useRef, Suspense} from 'react'
 import styled from "styled-components";
 import bg from '../assets/images/bg.jpg';
 import fort from '../assets/images/fort.svg';
 import * as THREE from 'three';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber'
-import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import {useGA4React} from "ga-4-react"
+import {Canvas, useFrame, useLoader} from '@react-three/fiber'
+import {TextureLoader} from 'three/src/loaders/TextureLoader'
 import {FortLogo} from "../assets";
 
 const AppFrame = styled.div`
@@ -75,11 +74,6 @@ const BallFrame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 600px) {
-    width: 200%;
-    position: absolute;
-    left: -325px;
-  }
 `
 
 const AppButton = styled.button`
@@ -163,23 +157,21 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 }
 
 function App() {
-  const ga4 = useGA4React()
-
   // @ts-ignore
   return (
     <AppFrame>
-        <BallFrame>
-          <Canvas>
-            <ambientLight intensity={0.02} />
-            <directionalLight color="white" position={[20, 20, -20]}   intensity={1.5} />
-            <directionalLight color="white" position={[20, 20, 20]} intensity={0.12} castShadow/>
-            <Suspense fallback={null}>
-              <Box position={[0, 0, 0]} />
-            </Suspense>
-          </Canvas>
-        </BallFrame>
+      <BallFrame>
+        <Canvas>
+          <ambientLight intensity={0.02}/>
+          <directionalLight color="white" position={[20, 20, -20]} intensity={1.5}/>
+          <directionalLight color="white" position={[20, 20, 20]} intensity={0.12} castShadow/>
+          <Suspense fallback={null}>
+            <Box position={[0, 0, 0]}/>
+          </Suspense>
+        </Canvas>
+      </BallFrame>
       <HeaderFrame>
-        <FortLogo style={{ margin: "0 40px", height: "20px" }} />
+        <FortLogo style={{margin: "0 40px", height: "20px"}}/>
         <DashboardButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
@@ -191,9 +183,6 @@ function App() {
       <ContentFrame>
         <FormulaImage src={fort} alt="fort formula"/>
         <AppButton onClick={() => {
-          if (ga4){
-            ga4.event("jump", "APP", "")
-          }
           const w = window.open('about:blank');
           // @ts-ignore
           w.location.href = 'https://app.fortprotocol.com/';
@@ -201,9 +190,6 @@ function App() {
           APP
         </AppButton>
         <DashboardButton2 onClick={() => {
-          if (ga4){
-            ga4.event("jump", "Dashboard", "")
-          }
           const w = window.open('about:blank');
           // @ts-ignore
           w.location.href = 'https://fort-dashboard.on.fleek.co/';
