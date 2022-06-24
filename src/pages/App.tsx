@@ -185,7 +185,7 @@ function App() {
         <AppButton onClick={() => {
           const w = window.open('about:blank');
           // @ts-ignore
-          w.location.href = 'https://bsc.fortprotocol.com/';
+          w.location.href = 'https://bnb.fortprotocol.com/';
         }}>
           APP
         </AppButton>
